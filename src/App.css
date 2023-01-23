@@ -71,3 +71,7 @@ button {
   border: none;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
+
+li.done {
+  background-color: green;
+}

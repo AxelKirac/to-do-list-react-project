@@ -23,7 +23,7 @@ const App = () => {
     setList(listCopy);
   };
 
-  // Function to mark an item as done
+
   const markDone = (index) => {
     // Copy current list into a new array
     const listCopy = [...list];
@@ -33,7 +33,10 @@ const App = () => {
 
     // Set state with the new array
     setList(listCopy);
-  };
+
+    // Add style to the element
+    document.querySelector(`li:nth-child(${index + 1})`).style.backgroundColor = 'green';
+};
 
   // Function to remove an item from the list
   const removeTodo = (index) => {
@@ -61,7 +64,7 @@ const App = () => {
       />
       <ul>
         {list.map((item, index) => (
-          <li key={index}>
+          <li key={index} className={item.isDone ? 'done' : ''}>
             {item.value}
             <button onClick={() => markDone(index)}>Mark as Done</button>
             <button onClick={() => removeTodo(index)}>Remove</button>
