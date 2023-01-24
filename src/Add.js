@@ -1,35 +1,33 @@
-// import React from "react";
-// import React, { useState } from "react";
+import "./App.css";
+import { ItemsContainer } from "./itemsContainer";
+import { useState } from "react";
 
-//   // Function to add items to our list
-//   export default function addTodo() {
-//     return (value) => {
-//         const newTodo = {
-//             value,
-//             isDone: false,
-//         };
-//         const [list, setList] = useState([]);
-//         // Copy current list into a new array
-//         const listCopy = [...list];
+export const newTodo = {
+  value: "",
+  isDone: false,
+};
 
-//         // Add new item to the new array
-//         listCopy.push(newTodo);
+export const ToDoAddInput = () => {
+  const [list, setList] = useState([]);
 
-//         // Set state with the new array
-//         setList(listCopy);
-        
-        
-//         return <input
-//     className="input__text"
-//       type="text"
-//       onKeyDown={(e) => {
-//         if (e.key === "Enter") {
-//           addTodo(e.target.value);
-//           e.target.value = "";
-//         }
-//     }}
-//     />
-//     };
-// }
-
-    
+  return (
+    <div>
+      <input
+        className="input__text"
+        type="text"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            const newTodo = {
+              value: e.target.value,
+              isDone: false,
+            };
+            setList([...list, newTodo]);
+            e.target.value = "";
+            console.log(list);
+          }
+        }}
+      />
+      <ItemsContainer list={list} setList={setList} />
+    </div>
+  );
+};

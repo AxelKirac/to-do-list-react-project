@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import addTodo from "./Add";
+import { ToDoAddInput } from "./Add";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
-
-// const add = ReactDOM.createRoot(document.getElementById('add'));
-// add.render(
-// )
+root.render(
+  <div>
+    <h1>todo</h1>
+    <ToDoAddInput />
+  </div>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
